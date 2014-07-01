@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A52A51E619630EDC0065407B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52A51E519630EDC0065407B /* Cocoa.framework */; };
+		A52A51F019630EDC0065407B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52A51EE19630EDC0065407B /* InfoPlist.strings */; };
+		A52A51F219630EDC0065407B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A52A51F119630EDC0065407B /* main.m */; };
+		A52A51F619630EDC0065407B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A52A51F419630EDC0065407B /* Credits.rtf */; };
+		A52A51F919630EDC0065407B /* RZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A52A51F819630EDC0065407B /* RZAppDelegate.m */; };
+		A52A51FC19630EDC0065407B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A52A51FA19630EDC0065407B /* MainMenu.xib */; };
+		A52A51FF19630EDC0065407B /* BullshitBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A52A51FD19630EDC0065407B /* BullshitBox.xcdatamodeld */; };
+		A52A520119630EDC0065407B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52A520019630EDC0065407B /* Images.xcassets */; };
+		A52A520819630EDC0065407B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52A520719630EDC0065407B /* XCTest.framework */; };
+		A52A520919630EDC0065407B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52A51E519630EDC0065407B /* Cocoa.framework */; };
+		A52A521119630EDC0065407B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52A520F19630EDC0065407B /* InfoPlist.strings */; };
+		A52A521319630EDC0065407B /* BullshitBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A52A521219630EDC0065407B /* BullshitBoxTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A52A520A19630EDC0065407B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A52A51DA19630EDC0065407B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A52A51E119630EDC0065407B;
+			remoteInfo = BullshitBox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A52A51E219630EDC0065407B /* BullshitBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullshitBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52A51E519630EDC0065407B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A52A51E819630EDC0065407B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A52A51E919630EDC0065407B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A52A51EA19630EDC0065407B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A52A51ED19630EDC0065407B /* BullshitBox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BullshitBox-Info.plist"; sourceTree = "<group>"; };
+		A52A51EF19630EDC0065407B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A52A51F119630EDC0065407B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A52A51F319630EDC0065407B /* BullshitBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BullshitBox-Prefix.pch"; sourceTree = "<group>"; };
+		A52A51F519630EDC0065407B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		A52A51F719630EDC0065407B /* RZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZAppDelegate.h; sourceTree = "<group>"; };
+		A52A51F819630EDC0065407B /* RZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZAppDelegate.m; sourceTree = "<group>"; };
+		A52A51FB19630EDC0065407B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A52A51FE19630EDC0065407B /* BullshitBox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BullshitBox.xcdatamodel; sourceTree = "<group>"; };
+		A52A520019630EDC0065407B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A52A520619630EDC0065407B /* BullshitBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullshitBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52A520719630EDC0065407B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A52A520E19630EDC0065407B /* BullshitBoxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BullshitBoxTests-Info.plist"; sourceTree = "<group>"; };
+		A52A521019630EDC0065407B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A52A521219630EDC0065407B /* BullshitBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BullshitBoxTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A52A51DF19630EDC0065407B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52A51E619630EDC0065407B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52A520319630EDC0065407B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52A520919630EDC0065407B /* Cocoa.framework in Frameworks */,
+				A52A520819630EDC0065407B /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A52A51D919630EDC0065407B = {
+			isa = PBXGroup;
+			children = (
+				A52A51EB19630EDC0065407B /* BullshitBox */,
+				A52A520C19630EDC0065407B /* BullshitBoxTests */,
+				A52A51E419630EDC0065407B /* Frameworks */,
+				A52A51E319630EDC0065407B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A52A51E319630EDC0065407B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A52A51E219630EDC0065407B /* BullshitBox.app */,
+				A52A520619630EDC0065407B /* BullshitBoxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A52A51E419630EDC0065407B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A52A51E519630EDC0065407B /* Cocoa.framework */,
+				A52A520719630EDC0065407B /* XCTest.framework */,
+				A52A51E719630EDC0065407B /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A52A51E719630EDC0065407B /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A52A51E819630EDC0065407B /* AppKit.framework */,
+				A52A51E919630EDC0065407B /* CoreData.framework */,
+				A52A51EA19630EDC0065407B /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A52A51EB19630EDC0065407B /* BullshitBox */ = {
+			isa = PBXGroup;
+			children = (
+				A52A51F719630EDC0065407B /* RZAppDelegate.h */,
+				A52A51F819630EDC0065407B /* RZAppDelegate.m */,
+				A52A51FA19630EDC0065407B /* MainMenu.xib */,
+				A52A520019630EDC0065407B /* Images.xcassets */,
+				A52A51FD19630EDC0065407B /* BullshitBox.xcdatamodeld */,
+				A52A51EC19630EDC0065407B /* Supporting Files */,
+			);
+			path = BullshitBox;
+			sourceTree = "<group>";
+		};
+		A52A51EC19630EDC0065407B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A52A51ED19630EDC0065407B /* BullshitBox-Info.plist */,
+				A52A51EE19630EDC0065407B /* InfoPlist.strings */,
+				A52A51F119630EDC0065407B /* main.m */,
+				A52A51F319630EDC0065407B /* BullshitBox-Prefix.pch */,
+				A52A51F419630EDC0065407B /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A52A520C19630EDC0065407B /* BullshitBoxTests */ = {
+			isa = PBXGroup;
+			children = (
+				A52A521219630EDC0065407B /* BullshitBoxTests.m */,
+				A52A520D19630EDC0065407B /* Supporting Files */,
+			);
+			path = BullshitBoxTests;
+			sourceTree = "<group>";
+		};
+		A52A520D19630EDC0065407B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A52A520E19630EDC0065407B /* BullshitBoxTests-Info.plist */,
+				A52A520F19630EDC0065407B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A52A51E119630EDC0065407B /* BullshitBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52A521619630EDC0065407B /* Build configuration list for PBXNativeTarget "BullshitBox" */;
+			buildPhases = (
+				A52A51DE19630EDC0065407B /* Sources */,
+				A52A51DF19630EDC0065407B /* Frameworks */,
+				A52A51E019630EDC0065407B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BullshitBox;
+			productName = BullshitBox;
+			productReference = A52A51E219630EDC0065407B /* BullshitBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A52A520519630EDC0065407B /* BullshitBoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52A521919630EDC0065407B /* Build configuration list for PBXNativeTarget "BullshitBoxTests" */;
+			buildPhases = (
+				A52A520219630EDC0065407B /* Sources */,
+				A52A520319630EDC0065407B /* Frameworks */,
+				A52A520419630EDC0065407B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A52A520B19630EDC0065407B /* PBXTargetDependency */,
+			);
+			name = BullshitBoxTests;
+			productName = BullshitBoxTests;
+			productReference = A52A520619630EDC0065407B /* BullshitBoxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A52A51DA19630EDC0065407B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RZ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "REZO ZERO";
+				TargetAttributes = {
+					A52A520519630EDC0065407B = {
+						TestTargetID = A52A51E119630EDC0065407B;
+					};
+				};
+			};
+			buildConfigurationList = A52A51DD19630EDC0065407B /* Build configuration list for PBXProject "BullshitBox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A52A51D919630EDC0065407B;
+			productRefGroup = A52A51E319630EDC0065407B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A52A51E119630EDC0065407B /* BullshitBox */,
+				A52A520519630EDC0065407B /* BullshitBoxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A52A51E019630EDC0065407B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52A51F019630EDC0065407B /* InfoPlist.strings in Resources */,
+				A52A520119630EDC0065407B /* Images.xcassets in Resources */,
+				A52A51F619630EDC0065407B /* Credits.rtf in Resources */,
+				A52A51FC19630EDC0065407B /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52A520419630EDC0065407B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52A521119630EDC0065407B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A52A51DE19630EDC0065407B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52A51FF19630EDC0065407B /* BullshitBox.xcdatamodeld in Sources */,
+				A52A51F919630EDC0065407B /* RZAppDelegate.m in Sources */,
+				A52A51F219630EDC0065407B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52A520219630EDC0065407B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52A521319630EDC0065407B /* BullshitBoxTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A52A520B19630EDC0065407B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A52A51E119630EDC0065407B /* BullshitBox */;
+			targetProxy = A52A520A19630EDC0065407B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A52A51EE19630EDC0065407B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A52A51EF19630EDC0065407B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A52A51F419630EDC0065407B /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A52A51F519630EDC0065407B /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		A52A51FA19630EDC0065407B /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A52A51FB19630EDC0065407B /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		A52A520F19630EDC0065407B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A52A521019630EDC0065407B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A52A521419630EDC0065407B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A52A521519630EDC0065407B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A52A521719630EDC0065407B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BullshitBox/BullshitBox-Prefix.pch";
+				INFOPLIST_FILE = "BullshitBox/BullshitBox-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A52A521819630EDC0065407B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BullshitBox/BullshitBox-Prefix.pch";
+				INFOPLIST_FILE = "BullshitBox/BullshitBox-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A52A521A19630EDC0065407B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BullshitBox.app/Contents/MacOS/BullshitBox";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BullshitBox/BullshitBox-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BullshitBoxTests/BullshitBoxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A52A521B19630EDC0065407B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BullshitBox.app/Contents/MacOS/BullshitBox";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BullshitBox/BullshitBox-Prefix.pch";
+				INFOPLIST_FILE = "BullshitBoxTests/BullshitBoxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A52A51DD19630EDC0065407B /* Build configuration list for PBXProject "BullshitBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52A521419630EDC0065407B /* Debug */,
+				A52A521519630EDC0065407B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52A521619630EDC0065407B /* Build configuration list for PBXNativeTarget "BullshitBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52A521719630EDC0065407B /* Debug */,
+				A52A521819630EDC0065407B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A52A521919630EDC0065407B /* Build configuration list for PBXNativeTarget "BullshitBoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52A521A19630EDC0065407B /* Debug */,
+				A52A521B19630EDC0065407B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A52A51FD19630EDC0065407B /* BullshitBox.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A52A51FE19630EDC0065407B /* BullshitBox.xcdatamodel */,
+			);
+			currentVersion = A52A51FE19630EDC0065407B /* BullshitBox.xcdatamodel */;
+			path = BullshitBox.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A52A51DA19630EDC0065407B /* Project object */;
+}
