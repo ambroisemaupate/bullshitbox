@@ -20,6 +20,9 @@
     _synth = [[NSSpeechSynthesizer alloc] init]; //start with default voice
     _sentences = [[NSMutableArray alloc] init];
     _buttons = [[NSMutableArray alloc] init];
+    
+    
+    [self loadSentences];
 }
 
 - (IBAction)speak:(id)sender
@@ -71,6 +74,52 @@
     [myButton setTitle: sentence];
     
     [_buttons addObject:myButton];
+    [self saveSentences];
+}
+
+- (void)saveSentences
+{
+    NSFileManager *myManager =[NSFileManager defaultManager];
+    
+    NSURL *storeFolder = [self applicationFilesDirectory];
+    NSURL *storeURL = [self sentencesStoreFile];
+    
+    if (![myManager fileExistsAtPath:[storeFolder path]])
+    {
+        NSLog(@"Error: Folder does not exist %@", [storeFolder path]);
+        if(![myManager createDirectoryAtPath:[storeFolder path] withIntermediateDirectories:YES attributes:nil error:NULL])
+        {
+            NSLog(@"Error: Create folder failed %@", [storeFolder path]);
+        }
+    }
+    
+    [_sentences writeToURL:storeURL atomically:YES];
+}
+
+- (void)loadSentences
+{
+    NSFileManager *myManager =[NSFileManager defaultManager];
+    NSURL *storeURL = [self sentencesStoreFile];
+    
+    if ([myManager fileExistsAtPath:[storeURL path]])
+    {
+         NSLog(@"Confirm: Loading %@", [storeURL path]);
+        _sentences = [NSMutableArray arrayWithContentsOfURL:storeURL];
+       
+        [self createButtons];
+    }
+}
+
+- (void)createButtons
+{
+    for (NSString* string in _sentences) {
+        [self createButtonForSentence:string];
+    }
+}
+
+- (NSURL *)sentencesStoreFile
+{
+    return [[self applicationFilesDirectory] URLByAppendingPathComponent:@"sentences.plist"];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "rezo-zero.BullshitBox" in the user's Application Support directory.
