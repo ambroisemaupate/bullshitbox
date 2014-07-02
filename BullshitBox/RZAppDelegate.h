@@ -16,6 +16,13 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+@property (nonatomic, retain) IBOutlet NSTextField *customTextField;
+@property (nonatomic, retain) IBOutlet NSWindow *mainWindow;
+@property (nonatomic, retain) NSSpeechSynthesizer *synth;
+@property (nonatomic, retain) NSMutableArray *sentences;
+@property (nonatomic, retain) NSMutableArray *buttons;
+
 - (IBAction)saveAction:(id)sender;
+- (IBAction)speakFromButton:(id)sender;
 
 @end

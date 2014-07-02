@@ -16,7 +16,61 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    
+    _synth = [[NSSpeechSynthesizer alloc] init]; //start with default voice
+    _sentences = [[NSMutableArray alloc] init];
+    _buttons = [[NSMutableArray alloc] init];
+}
+
+- (IBAction)speak:(id)sender
+{
+    NSString *text = @"Non mais Allô quoi ?";
+    [_synth startSpeakingString:text];
+}
+- (IBAction)speak2:(id)sender
+{
+    NSString *text = @"Mais ils vont la fermer, leur gueule";
+    [_synth startSpeakingString:text];
+}
+- (IBAction)speakCustom:(id)sender
+{
+    NSString *sentence = self.customTextField.stringValue;
+    [_synth startSpeakingString:sentence];
+}
+
+- (IBAction)addCustomSentence:(id)sender
+{
+    NSString *sentence = self.customTextField.stringValue;
+    if ([sentence length] > 0) {
+        [_sentences addObject:sentence];
+        
+        [self createButtonForSentence:sentence];
+    }
+}
+
+- (IBAction)speakFromButton:(id)sender
+{
+    NSString *sentence = [sender title];
+    [_synth startSpeakingString:sentence];
+    
+    NSLog([NSString stringWithFormat:@"line: %@", sentence]);
+}
+
+
+- (void)createButtonForSentence:(NSString*)sentence
+{
+    NSUInteger buttonCount = [_buttons count];
+    NSSize mainWindowSize = [ [ _mainWindow contentView ] frame ].size;
+    
+    CGRect  viewRect = CGRectMake(20, mainWindowSize.height - (20 + ((buttonCount+1)*30)), mainWindowSize.width-40, 30);
+    NSButton *myButton = [[NSButton alloc] initWithFrame: viewRect];
+    [myButton setBezelStyle:NSSmallSquareBezelStyle];
+    [myButton setButtonType:NSMomentaryPushInButton];
+    [myButton setAction:@selector(speakFromButton:)];
+    [[_mainWindow contentView] addSubview: myButton];
+    [myButton setTitle: sentence];
+    
+    [_buttons addObject:myButton];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "rezo-zero.BullshitBox" in the user's Application Support directory.
