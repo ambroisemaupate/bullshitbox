@@ -8,6 +8,9 @@
 
 #import "RZAppDelegate.h"
 
+#import "RZSpeechButton.h"
+#import "RZDeleteSentenceButton.h"
+
 @implementation RZAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -21,20 +24,12 @@
     _sentences = [[NSMutableArray alloc] init];
     _buttons = [[NSMutableArray alloc] init];
     
-    
     [self loadSentences];
+//    [self updateScrollViewHeight];
+//    
+//    [_mainScrollView.contentView scrollToPoint:NSMakePoint(0, 0)];
 }
 
-- (IBAction)speak:(id)sender
-{
-    NSString *text = @"Non mais Allô quoi ?";
-    [_synth startSpeakingString:text];
-}
-- (IBAction)speak2:(id)sender
-{
-    NSString *text = @"Mais ils vont la fermer, leur gueule";
-    [_synth startSpeakingString:text];
-}
 - (IBAction)speakCustom:(id)sender
 {
     NSString *sentence = self.customTextField.stringValue;
@@ -51,30 +46,123 @@
     }
 }
 
+
 - (IBAction)speakFromButton:(id)sender
 {
-    NSString *sentence = [sender title];
+    NSString *sentence = ((RZSpeechButton*)sender).speechedSentence;
     [_synth startSpeakingString:sentence];
+}
+
+
+- (IBAction)removeButton:(id)sender
+{
+    RZSpeechButton *refButton = ((RZDeleteSentenceButton*)sender).refButton;
     
-    NSLog([NSString stringWithFormat:@"line: %@", sentence]);
+    //[refButton removeFromSuperview];
+    //[((RZDeleteSentenceButton*)sender) removeFromSuperview];
+    
+    for(id item in _sentences) {
+        if([item isEqual:(refButton.speechedSentence)]) {
+            [_sentences removeObject:item];
+            break;
+        }
+    }
+    
+    [self saveSentences];
+    [self createButtons];
+}
+
+- (void)removeAllButton
+{
+    for(id item in _buttons) {
+        [item removeFromSuperview];
+    }
+    
+    [_buttons removeAllObjects];
 }
 
 
 - (void)createButtonForSentence:(NSString*)sentence
 {
-    NSUInteger buttonCount = [_buttons count];
-    NSSize mainWindowSize = [ [ _mainWindow contentView ] frame ].size;
+    NSUInteger buttonCount = [_buttons count] / 2;
+    NSUInteger deleteWidth = 30;
+    NSSize mainWindowSize = [ [ _mainScrollView contentView ] frame ].size;
     
-    CGRect  viewRect = CGRectMake(20, mainWindowSize.height - (20 + ((buttonCount+1)*30)), mainWindowSize.width-40, 30);
-    NSButton *myButton = [[NSButton alloc] initWithFrame: viewRect];
+    CGRect  viewDeleteRect = CGRectMake(mainWindowSize.width-deleteWidth-20, mainWindowSize.height - (20 + ((buttonCount+1)*30)), deleteWidth, 30);
+    CGRect  viewRect = CGRectMake(20, mainWindowSize.height - (20 + ((buttonCount+1)*30)), mainWindowSize.width-40-deleteWidth, 30);
+    
+    /*
+     * Speak button
+     */
+    RZSpeechButton *myButton = [[RZSpeechButton alloc] initWithFrame: viewRect];
     [myButton setBezelStyle:NSSmallSquareBezelStyle];
     [myButton setButtonType:NSMomentaryPushInButton];
     [myButton setAction:@selector(speakFromButton:)];
-    [[_mainWindow contentView] addSubview: myButton];
     [myButton setTitle: sentence];
     
+    [_innerScrollView addSubview: myButton];
+    
+    myButton.speechedSentence = sentence;
+
     [_buttons addObject:myButton];
+    
+    /*
+     * Delete button
+     */
+    RZDeleteSentenceButton *myDeleteButton = [[RZDeleteSentenceButton alloc] initWithFrame: viewDeleteRect];
+    [myDeleteButton setBezelStyle:NSSmallSquareBezelStyle];
+    [myDeleteButton setButtonType:NSMomentaryPushInButton];
+    [myDeleteButton setAction:@selector(removeButton:)];
+    
+    [_innerScrollView addSubview: myDeleteButton];
+    [myDeleteButton setTitle: @"—"];
+    
+    myDeleteButton.refButton = myButton;
+    
+    [_buttons addObject:myDeleteButton];
+    
+    [self updateScrollViewHeight];
     [self saveSentences];
+}
+
+- (void)updateScrollViewHeight
+{
+    //NSSize mainWindowSize = [ [ _mainScrollView contentView ] frame ].size;
+    //[_mainScrollView.documentView setFrame:(NSMakeRect(0,0, mainWindowSize.width, [_sentences count]*35))];
+    
+    //[_innerScrollView setFrameSize:NSMakeSize(mainWindowSize.width, [_sentences count]*30 + 40)];
+}
+
+- (void)scrollToTop:sender;
+{
+    NSPoint newScrollOrigin;
+    
+    // assume that the scrollview is an existing variable
+    if ([[_mainScrollView documentView] isFlipped]) {
+        newScrollOrigin=NSMakePoint(0.0,0.0);
+    } else {
+        newScrollOrigin=NSMakePoint(0.0,NSMaxY([[_mainScrollView documentView] frame])
+                                    -NSHeight([[_mainScrollView contentView] bounds]));
+    }
+    
+    [[_mainScrollView documentView] scrollPoint:newScrollOrigin];
+    
+}
+
+- (void)scrollToBottom:sender;
+{
+    NSPoint newScrollOrigin;
+    
+    // assume that the scrollview is an existing variable
+    if ([[_mainScrollView documentView] isFlipped]) {
+        newScrollOrigin=NSMakePoint(0.0,NSMaxY([[_mainScrollView documentView] frame])
+                                    -NSHeight([[_mainScrollView contentView] bounds]));
+    } else {
+        newScrollOrigin=NSMakePoint(0.0,0.0);
+    }
+    
+    [[_mainScrollView documentView] scrollPoint:newScrollOrigin];
+    
 }
 
 - (void)saveSentences
@@ -112,6 +200,7 @@
 
 - (void)createButtons
 {
+    [self removeAllButton];
     for (NSString* string in _sentences) {
         [self createButtonForSentence:string];
     }

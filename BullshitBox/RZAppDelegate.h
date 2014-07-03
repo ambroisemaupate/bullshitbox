@@ -18,6 +18,8 @@
 
 @property (nonatomic, retain) IBOutlet NSTextField *customTextField;
 @property (nonatomic, retain) IBOutlet NSWindow *mainWindow;
+@property (nonatomic, retain) IBOutlet NSScrollView *mainScrollView;
+@property (nonatomic, retain) IBOutlet NSView *innerScrollView;
 @property (nonatomic, retain) NSSpeechSynthesizer *synth;
 @property (nonatomic, retain) NSMutableArray *sentences;
 @property (nonatomic, retain) NSMutableArray *buttons;
