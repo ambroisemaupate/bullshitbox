@@ -25,9 +25,7 @@
     _buttons = [[NSMutableArray alloc] init];
     
     [self loadSentences];
-//    [self updateScrollViewHeight];
-//    
-//    [_mainScrollView.contentView scrollToPoint:NSMakePoint(0, 0)];
+    [self updateScrollViewHeight];
 }
 
 - (IBAction)speakCustom:(id)sender
@@ -41,6 +39,8 @@
     NSString *sentence = self.customTextField.stringValue;
     if ([sentence length] > 0) {
         [_sentences addObject:sentence];
+        
+        [self.customTextField setStringValue:@""];
         
         [self createButtonForSentence:sentence];
     }
@@ -85,20 +85,23 @@
 - (void)createButtonForSentence:(NSString*)sentence
 {
     NSUInteger buttonCount = [_buttons count] / 2;
-    NSUInteger deleteWidth = 30;
+    NSUInteger deleteWidth = 38;
     NSSize mainWindowSize = [ [ _mainScrollView contentView ] frame ].size;
     
-    CGRect  viewDeleteRect = CGRectMake(mainWindowSize.width-deleteWidth-20, mainWindowSize.height - (20 + ((buttonCount+1)*30)), deleteWidth, 30);
-    CGRect  viewRect = CGRectMake(20, mainWindowSize.height - (20 + ((buttonCount+1)*30)), mainWindowSize.width-40-deleteWidth, 30);
+    CGRect  viewDeleteRect = CGRectMake(mainWindowSize.width-deleteWidth-20, mainWindowSize.height - (27 + ((buttonCount+1)*30)), deleteWidth, deleteWidth);
+    CGRect  viewRect = CGRectMake(20, mainWindowSize.height - (20 + ((buttonCount+1)*30)), mainWindowSize.width-45-deleteWidth, 30);
     
     /*
      * Speak button
      */
     RZSpeechButton *myButton = [[RZSpeechButton alloc] initWithFrame: viewRect];
-    [myButton setBezelStyle:NSSmallSquareBezelStyle];
+    //RZSpeechButton *myButton = [[RZSpeechButton alloc] init];
+    [myButton setBezelStyle:NSRoundedBezelStyle];
     [myButton setButtonType:NSMomentaryPushInButton];
     [myButton setAction:@selector(speakFromButton:)];
     [myButton setTitle: sentence];
+    [myButton setFont:[NSFont fontWithName:@"Arial" size:11]];
+    myButton.translatesAutoresizingMaskIntoConstraints = NO;
     
     [_innerScrollView addSubview: myButton];
     
@@ -106,20 +109,51 @@
 
     [_buttons addObject:myButton];
     
+    
     /*
      * Delete button
      */
     RZDeleteSentenceButton *myDeleteButton = [[RZDeleteSentenceButton alloc] initWithFrame: viewDeleteRect];
-    [myDeleteButton setBezelStyle:NSSmallSquareBezelStyle];
+    //RZDeleteSentenceButton *myDeleteButton = [[RZDeleteSentenceButton alloc] init];
+    //[myDeleteButton setBezelStyle:NSSmallSquareBezelStyle];
+    [myDeleteButton setBezelStyle: NSRoundRectBezelStyle];
+    [myDeleteButton setImage: [ NSImage imageNamed: NSImageNameRemoveTemplate ]];
     [myDeleteButton setButtonType:NSMomentaryPushInButton];
     [myDeleteButton setAction:@selector(removeButton:)];
+    [myDeleteButton setTitle:@""];
     
     [_innerScrollView addSubview: myDeleteButton];
-    [myDeleteButton setTitle: @"—"];
     
     myDeleteButton.refButton = myButton;
+    myDeleteButton.translatesAutoresizingMaskIntoConstraints = NO;
     
     [_buttons addObject:myDeleteButton];
+    
+    /*
+     *  Constraints
+     */
+    NSDictionary *viewsDictionary =
+    NSDictionaryOfVariableBindings(myButton, myDeleteButton);
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[myButton]-10-[myDeleteButton(20)]-20-|"
+                                            options:0 metrics:nil views:viewsDictionary];
+    [_innerScrollView addConstraints:constraints];
+    
+    /* 
+     * Vertical for text
+     */
+    NSString *verticalConstraint = [[NSString alloc] initWithFormat:@"V:|-%lu-[myButton(23)]", 20 + ((buttonCount)*25)];
+    NSArray *constraints2 = [NSLayoutConstraint constraintsWithVisualFormat:verticalConstraint
+                                                                    options:0 metrics:nil views:viewsDictionary];
+    [_innerScrollView addConstraints:constraints2];
+    
+    
+    /*
+     * Vertical for remove
+     */
+    NSString *verticalConstraintR = [[NSString alloc] initWithFormat:@"V:|-%lu-[myDeleteButton(23)]", 20 + ((buttonCount)*25)];
+    NSArray *constraints2R = [NSLayoutConstraint constraintsWithVisualFormat:verticalConstraintR
+                                                                    options:0 metrics:nil views:viewsDictionary];
+    [_innerScrollView addConstraints:constraints2R];
     
     [self updateScrollViewHeight];
     [self saveSentences];
