@@ -8,6 +8,7 @@
 
 #import "RZAppDelegate.h"
 
+#import "RZSentencesDelegate.h"
 #import "RZSpeechButton.h"
 #import "RZDeleteSentenceButton.h"
 
@@ -16,16 +17,16 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize sentences = _sentences;
+@synthesize synth = _synth;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     
     _synth = [[NSSpeechSynthesizer alloc] init]; //start with default voice
     _sentences = [[NSMutableArray alloc] init];
-    _buttons = [[NSMutableArray alloc] init];
     
     [self loadSentences];
-    [self updateScrollViewHeight];
 }
 
 - (IBAction)speakCustom:(id)sender
@@ -41,8 +42,8 @@
         [_sentences addObject:sentence];
         
         [self.customTextField setStringValue:@""];
-        
-        [self createButtonForSentence:sentence];
+        [_tableView reloadData];
+        [self saveSentences];
     }
 }
 
@@ -58,9 +59,6 @@
 {
     RZSpeechButton *refButton = ((RZDeleteSentenceButton*)sender).refButton;
     
-    //[refButton removeFromSuperview];
-    //[((RZDeleteSentenceButton*)sender) removeFromSuperview];
-    
     for(id item in _sentences) {
         if([item isEqual:(refButton.speechedSentence)]) {
             [_sentences removeObject:item];
@@ -69,7 +67,7 @@
     }
     
     [self saveSentences];
-    [self createButtons];
+    [_tableView reloadData];
 }
 
 - (void)removeAllButton
@@ -79,125 +77,9 @@
     }
     
     [_buttons removeAllObjects];
+    [_tableView reloadData];
 }
 
-
-- (void)createButtonForSentence:(NSString*)sentence
-{
-    NSUInteger buttonCount = [_buttons count] / 2;
-    NSUInteger deleteWidth = 38;
-    NSSize mainWindowSize = [ [ _mainScrollView contentView ] frame ].size;
-    
-    CGRect  viewDeleteRect = CGRectMake(mainWindowSize.width-deleteWidth-20, mainWindowSize.height - (27 + ((buttonCount+1)*30)), deleteWidth, deleteWidth);
-    CGRect  viewRect = CGRectMake(20, mainWindowSize.height - (20 + ((buttonCount+1)*30)), mainWindowSize.width-45-deleteWidth, 30);
-    
-    /*
-     * Speak button
-     */
-    RZSpeechButton *myButton = [[RZSpeechButton alloc] initWithFrame: viewRect];
-    //RZSpeechButton *myButton = [[RZSpeechButton alloc] init];
-    [myButton setBezelStyle:NSRoundedBezelStyle];
-    [myButton setButtonType:NSMomentaryPushInButton];
-    [myButton setAction:@selector(speakFromButton:)];
-    [myButton setTitle: sentence];
-    [myButton setFont:[NSFont fontWithName:@"Arial" size:11]];
-    myButton.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [_innerScrollView addSubview: myButton];
-    
-    myButton.speechedSentence = sentence;
-
-    [_buttons addObject:myButton];
-    
-    
-    /*
-     * Delete button
-     */
-    RZDeleteSentenceButton *myDeleteButton = [[RZDeleteSentenceButton alloc] initWithFrame: viewDeleteRect];
-    //RZDeleteSentenceButton *myDeleteButton = [[RZDeleteSentenceButton alloc] init];
-    //[myDeleteButton setBezelStyle:NSSmallSquareBezelStyle];
-    [myDeleteButton setBezelStyle: NSRoundRectBezelStyle];
-    [myDeleteButton setImage: [ NSImage imageNamed: NSImageNameRemoveTemplate ]];
-    [myDeleteButton setButtonType:NSMomentaryPushInButton];
-    [myDeleteButton setAction:@selector(removeButton:)];
-    [myDeleteButton setTitle:@""];
-    
-    [_innerScrollView addSubview: myDeleteButton];
-    
-    myDeleteButton.refButton = myButton;
-    myDeleteButton.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [_buttons addObject:myDeleteButton];
-    
-    /*
-     *  Constraints
-     */
-    NSDictionary *viewsDictionary =
-    NSDictionaryOfVariableBindings(myButton, myDeleteButton);
-    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[myButton]-10-[myDeleteButton(20)]-20-|"
-                                            options:0 metrics:nil views:viewsDictionary];
-    [_innerScrollView addConstraints:constraints];
-    
-    /* 
-     * Vertical for text
-     */
-    NSString *verticalConstraint = [[NSString alloc] initWithFormat:@"V:|-%lu-[myButton(23)]", 20 + ((buttonCount)*25)];
-    NSArray *constraints2 = [NSLayoutConstraint constraintsWithVisualFormat:verticalConstraint
-                                                                    options:0 metrics:nil views:viewsDictionary];
-    [_innerScrollView addConstraints:constraints2];
-    
-    
-    /*
-     * Vertical for remove
-     */
-    NSString *verticalConstraintR = [[NSString alloc] initWithFormat:@"V:|-%lu-[myDeleteButton(23)]", 20 + ((buttonCount)*25)];
-    NSArray *constraints2R = [NSLayoutConstraint constraintsWithVisualFormat:verticalConstraintR
-                                                                    options:0 metrics:nil views:viewsDictionary];
-    [_innerScrollView addConstraints:constraints2R];
-    
-    [self updateScrollViewHeight];
-    [self saveSentences];
-}
-
-- (void)updateScrollViewHeight
-{
-    //NSSize mainWindowSize = [ [ _mainScrollView contentView ] frame ].size;
-    //[_mainScrollView.documentView setFrame:(NSMakeRect(0,0, mainWindowSize.width, [_sentences count]*35))];
-    
-    //[_innerScrollView setFrameSize:NSMakeSize(mainWindowSize.width, [_sentences count]*30 + 40)];
-}
-
-- (void)scrollToTop:sender;
-{
-    NSPoint newScrollOrigin;
-    
-    // assume that the scrollview is an existing variable
-    if ([[_mainScrollView documentView] isFlipped]) {
-        newScrollOrigin=NSMakePoint(0.0,0.0);
-    } else {
-        newScrollOrigin=NSMakePoint(0.0,NSMaxY([[_mainScrollView documentView] frame])
-                                    -NSHeight([[_mainScrollView contentView] bounds]));
-    }
-    
-    [[_mainScrollView documentView] scrollPoint:newScrollOrigin];
-    
-}
-
-- (void)scrollToBottom:sender;
-{
-    NSPoint newScrollOrigin;
-    
-    // assume that the scrollview is an existing variable
-    if ([[_mainScrollView documentView] isFlipped]) {
-        newScrollOrigin=NSMakePoint(0.0,NSMaxY([[_mainScrollView documentView] frame])
-                                    -NSHeight([[_mainScrollView contentView] bounds]));
-    } else {
-        newScrollOrigin=NSMakePoint(0.0,0.0);
-    }
-    
-    [[_mainScrollView documentView] scrollPoint:newScrollOrigin];
-    
-}
 
 - (void)saveSentences
 {
@@ -228,15 +110,9 @@
          NSLog(@"Confirm: Loading %@", [storeURL path]);
         _sentences = [NSMutableArray arrayWithContentsOfURL:storeURL];
        
-        [self createButtons];
-    }
-}
-
-- (void)createButtons
-{
-    [self removeAllButton];
-    for (NSString* string in _sentences) {
-        [self createButtonForSentence:string];
+        [_tableView reloadData];
+        int count = [_sentences count];
+        NSLog(@"Table delegate is %i.", (int)count);
     }
 }
 

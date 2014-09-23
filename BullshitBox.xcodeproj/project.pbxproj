@@ -24,6 +24,7 @@
 		A5A2E9B819658F72006AB761 /* RZDeleteSentenceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A2E9B719658F72006AB761 /* RZDeleteSentenceButton.m */; };
 		A5A2E9BA196593E9006AB761 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2E9B9196593E9006AB761 /* icon-01.png */; };
 		A5A2E9BC19659790006AB761 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2E9BB19659790006AB761 /* icon-01.png */; };
+		A5E0CE2C19D101C70037E590 /* RZSentencesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E0CE2B19D101C70037E590 /* RZSentencesDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		A5A2E9B719658F72006AB761 /* RZDeleteSentenceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZDeleteSentenceButton.m; sourceTree = "<group>"; };
 		A5A2E9B9196593E9006AB761 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-01.png"; path = "Images.xcassets/icon-01.png"; sourceTree = "<group>"; };
 		A5A2E9BB19659790006AB761 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-01.png"; sourceTree = "<group>"; };
+		A5E0CE2A19D101C70037E590 /* RZSentencesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZSentencesDelegate.h; sourceTree = "<group>"; };
+		A5E0CE2B19D101C70037E590 /* RZSentencesDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZSentencesDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				A5A2E9B419658F01006AB761 /* RZSpeechButton.m */,
 				A5A2E9B619658F72006AB761 /* RZDeleteSentenceButton.h */,
 				A5A2E9B719658F72006AB761 /* RZDeleteSentenceButton.m */,
+				A5E0CE2A19D101C70037E590 /* RZSentencesDelegate.h */,
+				A5E0CE2B19D101C70037E590 /* RZSentencesDelegate.m */,
 			);
 			path = BullshitBox;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A52A51FF19630EDC0065407B /* BullshitBox.xcdatamodeld in Sources */,
+				A5E0CE2C19D101C70037E590 /* RZSentencesDelegate.m in Sources */,
 				A52A51F919630EDC0065407B /* RZAppDelegate.m in Sources */,
 				A52A51F219630EDC0065407B /* main.m in Sources */,
 				A5A2E9B519658F01006AB761 /* RZSpeechButton.m in Sources */,
@@ -413,6 +419,7 @@
 		A52A521719630EDC0065407B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BullshitBox/BullshitBox-Prefix.pch";
@@ -426,6 +433,7 @@
 		A52A521819630EDC0065407B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BullshitBox/BullshitBox-Prefix.pch";
