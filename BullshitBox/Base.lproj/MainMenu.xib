@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -323,7 +323,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="735" y="297" width="500" height="649"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="500" height="649"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -358,21 +358,47 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="C1d-oC-Wpw">
-                                                            <rect key="frame" x="1" y="1" width="495" height="17"/>
+                                                        <tableCellView id="C1d-oC-Wpw" customClass="RZSentenceView">
+                                                            <rect key="frame" x="1" y="0.0" width="495" height="43"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQK-6i-Jai">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="7kq-C4-6K8">
+                                                                <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mc1-gH-brQ" userLabel="speakButton">
+                                                                    <rect key="frame" x="2" y="2" width="457" height="37"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="26" id="ZiR-Ob-OvU"/>
+                                                                    </constraints>
+                                                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Lwd-SI-2SO">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="onSentenceClicked:" target="C1d-oC-Wpw" id="gcz-mG-F1W"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4TR-X0-PHG" userLabel="removeButton">
+                                                                    <rect key="frame" x="455" y="0.0" width="39" height="38"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="26" id="0xj-SL-HfN"/>
+                                                                        <constraint firstAttribute="height" constant="26" id="9Hv-en-5Sx"/>
+                                                                    </constraints>
+                                                                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSRemoveTemplate" imagePosition="only" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="J2G-sW-IrF">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="label"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="onRemovedClicked:" target="C1d-oC-Wpw" id="ATG-MG-2ju"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="4TR-X0-PHG" firstAttribute="leading" secondItem="Mc1-gH-brQ" secondAttribute="trailing" constant="8" id="MZg-h7-bNY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="4TR-X0-PHG" secondAttribute="trailing" constant="8" id="Xrq-Hr-bhg"/>
+                                                                <constraint firstItem="Mc1-gH-brQ" firstAttribute="leading" secondItem="C1d-oC-Wpw" secondAttribute="leading" constant="8" id="pXQ-OF-A24"/>
+                                                                <constraint firstItem="4TR-X0-PHG" firstAttribute="leading" secondItem="Mc1-gH-brQ" secondAttribute="trailing" constant="8" id="scD-mZ-FOq"/>
+                                                            </constraints>
                                                             <connections>
-                                                                <outlet property="textField" destination="FQK-6i-Jai" id="8xH-it-EPi"/>
+                                                                <outlet property="removeButton" destination="4TR-X0-PHG" id="tXk-XZ-5Fn"/>
+                                                                <outlet property="speakButton" destination="Mc1-gH-brQ" id="yIs-qv-XaG"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -474,6 +500,7 @@
         <collectionViewItem id="vC1-bL-fBG"/>
     </objects>
     <resources>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="bullshitBox" width="512" height="512"/>
     </resources>
 </document>

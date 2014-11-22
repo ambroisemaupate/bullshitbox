@@ -19,9 +19,8 @@
 		A52A520919630EDC0065407B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52A51E519630EDC0065407B /* Cocoa.framework */; };
 		A52A521119630EDC0065407B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52A520F19630EDC0065407B /* InfoPlist.strings */; };
 		A52A521319630EDC0065407B /* BullshitBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A52A521219630EDC0065407B /* BullshitBoxTests.m */; };
+		A53400B71A21491A00E2AA05 /* RZSentenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A53400B61A21491A00E2AA05 /* RZSentenceView.m */; };
 		A56475F71965986F000FB950 /* bullshitBox.icns in Resources */ = {isa = PBXBuildFile; fileRef = A56475F61965986F000FB950 /* bullshitBox.icns */; };
-		A5A2E9B519658F01006AB761 /* RZSpeechButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A2E9B419658F01006AB761 /* RZSpeechButton.m */; };
-		A5A2E9B819658F72006AB761 /* RZDeleteSentenceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A2E9B719658F72006AB761 /* RZDeleteSentenceButton.m */; };
 		A5A2E9BA196593E9006AB761 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2E9B9196593E9006AB761 /* icon-01.png */; };
 		A5A2E9BC19659790006AB761 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2E9BB19659790006AB761 /* icon-01.png */; };
 		A5E0CE2C19D101C70037E590 /* RZSentencesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E0CE2B19D101C70037E590 /* RZSentencesDelegate.m */; };
@@ -58,11 +57,9 @@
 		A52A520E19630EDC0065407B /* BullshitBoxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BullshitBoxTests-Info.plist"; sourceTree = "<group>"; };
 		A52A521019630EDC0065407B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A52A521219630EDC0065407B /* BullshitBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BullshitBoxTests.m; sourceTree = "<group>"; };
+		A53400B51A21491A00E2AA05 /* RZSentenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZSentenceView.h; sourceTree = "<group>"; };
+		A53400B61A21491A00E2AA05 /* RZSentenceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZSentenceView.m; sourceTree = "<group>"; };
 		A56475F61965986F000FB950 /* bullshitBox.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bullshitBox.icns; sourceTree = "<group>"; };
-		A5A2E9B319658F01006AB761 /* RZSpeechButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZSpeechButton.h; sourceTree = "<group>"; };
-		A5A2E9B419658F01006AB761 /* RZSpeechButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZSpeechButton.m; sourceTree = "<group>"; };
-		A5A2E9B619658F72006AB761 /* RZDeleteSentenceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZDeleteSentenceButton.h; sourceTree = "<group>"; };
-		A5A2E9B719658F72006AB761 /* RZDeleteSentenceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZDeleteSentenceButton.m; sourceTree = "<group>"; };
 		A5A2E9B9196593E9006AB761 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-01.png"; path = "Images.xcassets/icon-01.png"; sourceTree = "<group>"; };
 		A5A2E9BB19659790006AB761 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-01.png"; sourceTree = "<group>"; };
 		A5E0CE2A19D101C70037E590 /* RZSentencesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZSentencesDelegate.h; sourceTree = "<group>"; };
@@ -139,12 +136,10 @@
 				A52A520019630EDC0065407B /* Images.xcassets */,
 				A52A51FD19630EDC0065407B /* BullshitBox.xcdatamodeld */,
 				A52A51EC19630EDC0065407B /* Supporting Files */,
-				A5A2E9B319658F01006AB761 /* RZSpeechButton.h */,
-				A5A2E9B419658F01006AB761 /* RZSpeechButton.m */,
-				A5A2E9B619658F72006AB761 /* RZDeleteSentenceButton.h */,
-				A5A2E9B719658F72006AB761 /* RZDeleteSentenceButton.m */,
 				A5E0CE2A19D101C70037E590 /* RZSentencesDelegate.h */,
 				A5E0CE2B19D101C70037E590 /* RZSentencesDelegate.m */,
+				A53400B51A21491A00E2AA05 /* RZSentenceView.h */,
+				A53400B61A21491A00E2AA05 /* RZSentenceView.m */,
 			);
 			path = BullshitBox;
 			sourceTree = "<group>";
@@ -285,10 +280,9 @@
 			files = (
 				A52A51FF19630EDC0065407B /* BullshitBox.xcdatamodeld in Sources */,
 				A5E0CE2C19D101C70037E590 /* RZSentencesDelegate.m in Sources */,
+				A53400B71A21491A00E2AA05 /* RZSentenceView.m in Sources */,
 				A52A51F919630EDC0065407B /* RZAppDelegate.m in Sources */,
 				A52A51F219630EDC0065407B /* main.m in Sources */,
-				A5A2E9B519658F01006AB761 /* RZSpeechButton.m in Sources */,
-				A5A2E9B819658F72006AB761 /* RZDeleteSentenceButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

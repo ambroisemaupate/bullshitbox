@@ -9,8 +9,6 @@
 #import "RZAppDelegate.h"
 
 #import "RZSentencesDelegate.h"
-#import "RZSpeechButton.h"
-#import "RZDeleteSentenceButton.h"
 
 @implementation RZAppDelegate
 
@@ -43,31 +41,9 @@
         
         [self.customTextField setStringValue:@""];
         [_tableView reloadData];
+        
         [self saveSentences];
     }
-}
-
-
-- (IBAction)speakFromButton:(id)sender
-{
-    NSString *sentence = ((RZSpeechButton*)sender).speechedSentence;
-    [_synth startSpeakingString:sentence];
-}
-
-
-- (IBAction)removeButton:(id)sender
-{
-    RZSpeechButton *refButton = ((RZDeleteSentenceButton*)sender).refButton;
-    
-    for(id item in _sentences) {
-        if([item isEqual:(refButton.speechedSentence)]) {
-            [_sentences removeObject:item];
-            break;
-        }
-    }
-    
-    [self saveSentences];
-    [_tableView reloadData];
 }
 
 - (void)removeAllButton

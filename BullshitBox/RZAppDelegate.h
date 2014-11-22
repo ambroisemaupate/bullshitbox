@@ -31,4 +31,6 @@
 - (IBAction)saveAction:(id)sender;
 - (IBAction)speakFromButton:(id)sender;
 
+- (void)saveSentences;
+
 @end
