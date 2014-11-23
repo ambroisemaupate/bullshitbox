@@ -15,14 +15,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _appDelegate = (RZAppDelegate *)[NSApp delegate];
-    NSLog(@"Finish loading sentences delegate.");
+    //NSLog(@"Finish loading sentences delegate.");
 }
 
-- (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
-    
-    // Drawing code here.
-}
+
 - (IBAction)onSentenceClicked:(id)sender {
     NSString *sentence = self.speakButton.title;
     [_appDelegate.synth startSpeakingString:sentence];

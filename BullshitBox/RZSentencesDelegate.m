@@ -16,13 +16,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _appDelegate = (RZAppDelegate *)[NSApp delegate];
-    NSLog(@"Finish loading sentences delegate.");
+    //NSLog(@"Finish loading sentences delegate.");
 }
 
 // The only essential/required tableview dataSource method
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     
-    NSLog(@"%i sentences.", (int)[_appDelegate.sentences count]);
+    //NSLog(@"%i sentences.", (int)[_appDelegate.sentences count]);
     return [_appDelegate.sentences count];
 }
 

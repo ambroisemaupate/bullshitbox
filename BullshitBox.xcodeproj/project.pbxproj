@@ -20,6 +20,7 @@
 		A52A521119630EDC0065407B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52A520F19630EDC0065407B /* InfoPlist.strings */; };
 		A52A521319630EDC0065407B /* BullshitBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A52A521219630EDC0065407B /* BullshitBoxTests.m */; };
 		A53400B71A21491A00E2AA05 /* RZSentenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A53400B61A21491A00E2AA05 /* RZSentenceView.m */; };
+		A53400BC1A2156D000E2AA05 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A53400BB1A2156D000E2AA05 /* README.md */; };
 		A56475F71965986F000FB950 /* bullshitBox.icns in Resources */ = {isa = PBXBuildFile; fileRef = A56475F61965986F000FB950 /* bullshitBox.icns */; };
 		A5A2E9BA196593E9006AB761 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2E9B9196593E9006AB761 /* icon-01.png */; };
 		A5A2E9BC19659790006AB761 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2E9BB19659790006AB761 /* icon-01.png */; };
@@ -59,6 +60,7 @@
 		A52A521219630EDC0065407B /* BullshitBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BullshitBoxTests.m; sourceTree = "<group>"; };
 		A53400B51A21491A00E2AA05 /* RZSentenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZSentenceView.h; sourceTree = "<group>"; };
 		A53400B61A21491A00E2AA05 /* RZSentenceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZSentenceView.m; sourceTree = "<group>"; };
+		A53400BB1A2156D000E2AA05 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A56475F61965986F000FB950 /* bullshitBox.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bullshitBox.icns; sourceTree = "<group>"; };
 		A5A2E9B9196593E9006AB761 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-01.png"; path = "Images.xcassets/icon-01.png"; sourceTree = "<group>"; };
 		A5A2E9BB19659790006AB761 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-01.png"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		A52A51D919630EDC0065407B = {
 			isa = PBXGroup;
 			children = (
+				A53400BB1A2156D000E2AA05 /* README.md */,
 				A5A2E9BB19659790006AB761 /* icon-01.png */,
 				A52A51EB19630EDC0065407B /* BullshitBox */,
 				A52A520C19630EDC0065407B /* BullshitBoxTests */,
@@ -222,7 +225,7 @@
 			attributes = {
 				CLASSPREFIX = RZ;
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "REZO ZERO";
+				ORGANIZATIONNAME = "Ambroise Maupate";
 				TargetAttributes = {
 					A52A520519630EDC0065407B = {
 						TestTargetID = A52A51E119630EDC0065407B;
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53400BC1A2156D000E2AA05 /* README.md in Sources */,
 				A52A51FF19630EDC0065407B /* BullshitBox.xcdatamodeld in Sources */,
 				A5E0CE2C19D101C70037E590 /* RZSentencesDelegate.m in Sources */,
 				A53400B71A21491A00E2AA05 /* RZSentenceView.m in Sources */,

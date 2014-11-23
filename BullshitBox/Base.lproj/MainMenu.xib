@@ -331,14 +331,14 @@
                     <splitView dividerStyle="paneSplitter" translatesAutoresizingMaskIntoConstraints="NO" id="les-Bq-g5x">
                         <rect key="frame" x="0.0" y="-50" width="500" height="699"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="40" horizontalPageScroll="10" verticalLineScroll="40" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="tnS-ZV-m6X">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="33" horizontalPageScroll="10" verticalLineScroll="33" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="tnS-ZV-m6X">
                                 <rect key="frame" x="0.0" y="0.0" width="500" height="538"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="xjQ-nC-NkV">
                                     <rect key="frame" x="1" y="17" width="238" height="117"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="40" viewBased="YES" id="roj-KL-Zvi">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="33" rowSizeStyle="automatic" viewBased="YES" id="roj-KL-Zvi">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -359,29 +359,25 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="C1d-oC-Wpw" customClass="RZSentenceView">
-                                                            <rect key="frame" x="1" y="0.0" width="495" height="43"/>
+                                                            <rect key="frame" x="1" y="0.0" width="495" height="33"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mc1-gH-brQ" userLabel="speakButton">
-                                                                    <rect key="frame" x="2" y="2" width="457" height="37"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="26" id="ZiR-Ob-OvU"/>
-                                                                    </constraints>
-                                                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Lwd-SI-2SO">
+                                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="Mc1-gH-brQ" userLabel="speakButton">
+                                                                    <rect key="frame" x="8" y="10" width="445" height="14"/>
+                                                                    <buttonCell key="cell" type="squareTextured" title="Button example" bezelStyle="texturedSquare" alignment="center" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" imageScaling="proportionallyDown" inset="2" id="Lwd-SI-2SO">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                        <font key="font" metaFont="system"/>
+                                                                        <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
                                                                     <connections>
                                                                         <action selector="onSentenceClicked:" target="C1d-oC-Wpw" id="gcz-mG-F1W"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4TR-X0-PHG" userLabel="removeButton">
-                                                                    <rect key="frame" x="455" y="0.0" width="39" height="38"/>
+                                                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4TR-X0-PHG" userLabel="removeButton">
+                                                                    <rect key="frame" x="461" y="1" width="26" height="31"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="26" id="0xj-SL-HfN"/>
-                                                                        <constraint firstAttribute="height" constant="26" id="9Hv-en-5Sx"/>
                                                                     </constraints>
-                                                                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSRemoveTemplate" imagePosition="only" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="J2G-sW-IrF">
+                                                                    <buttonCell key="cell" type="bevel" bezelStyle="circular" image="trash-o" imagePosition="only" alignment="left" imageScaling="proportionallyDown" id="J2G-sW-IrF">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="label"/>
                                                                     </buttonCell>
@@ -392,9 +388,10 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="4TR-X0-PHG" firstAttribute="leading" secondItem="Mc1-gH-brQ" secondAttribute="trailing" constant="8" id="MZg-h7-bNY"/>
+                                                                <constraint firstAttribute="centerY" secondItem="Mc1-gH-brQ" secondAttribute="centerY" id="SL4-nq-B1y"/>
                                                                 <constraint firstAttribute="trailing" secondItem="4TR-X0-PHG" secondAttribute="trailing" constant="8" id="Xrq-Hr-bhg"/>
                                                                 <constraint firstItem="Mc1-gH-brQ" firstAttribute="leading" secondItem="C1d-oC-Wpw" secondAttribute="leading" constant="8" id="pXQ-OF-A24"/>
-                                                                <constraint firstItem="4TR-X0-PHG" firstAttribute="leading" secondItem="Mc1-gH-brQ" secondAttribute="trailing" constant="8" id="scD-mZ-FOq"/>
+                                                                <constraint firstAttribute="centerY" secondItem="4TR-X0-PHG" secondAttribute="centerY" constant="1" id="t9J-lD-XpJ"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="removeButton" destination="4TR-X0-PHG" id="tXk-XZ-5Fn"/>
@@ -497,10 +494,9 @@
                 </constraints>
             </view>
         </window>
-        <collectionViewItem id="vC1-bL-fBG"/>
     </objects>
     <resources>
-        <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="bullshitBox" width="512" height="512"/>
+        <image name="trash-o" width="16" height="16"/>
     </resources>
 </document>
