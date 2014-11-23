@@ -24,7 +24,6 @@
 		A56475F71965986F000FB950 /* bullshitBox.icns in Resources */ = {isa = PBXBuildFile; fileRef = A56475F61965986F000FB950 /* bullshitBox.icns */; };
 		A581BFB81A2162A90099E259 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A581BFB71A2162A90099E259 /* icon.png */; };
 		A5A2E9BA196593E9006AB761 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2E9B9196593E9006AB761 /* icon-01.png */; };
-		A5A2E9BC19659790006AB761 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2E9BB19659790006AB761 /* icon-01.png */; };
 		A5E0CE2C19D101C70037E590 /* RZSentencesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E0CE2B19D101C70037E590 /* RZSentencesDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +64,6 @@
 		A56475F61965986F000FB950 /* bullshitBox.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bullshitBox.icns; sourceTree = "<group>"; };
 		A581BFB71A2162A90099E259 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		A5A2E9B9196593E9006AB761 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-01.png"; path = "Images.xcassets/icon-01.png"; sourceTree = "<group>"; };
-		A5A2E9BB19659790006AB761 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-01.png"; sourceTree = "<group>"; };
 		A5E0CE2A19D101C70037E590 /* RZSentencesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZSentencesDelegate.h; sourceTree = "<group>"; };
 		A5E0CE2B19D101C70037E590 /* RZSentencesDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZSentencesDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +94,6 @@
 			children = (
 				A53400BB1A2156D000E2AA05 /* README.md */,
 				A581BFB71A2162A90099E259 /* icon.png */,
-				A5A2E9BB19659790006AB761 /* icon-01.png */,
 				A52A51EB19630EDC0065407B /* BullshitBox */,
 				A52A520C19630EDC0065407B /* BullshitBoxTests */,
 				A52A51E419630EDC0065407B /* Frameworks */,
@@ -266,7 +263,6 @@
 				A581BFB81A2162A90099E259 /* icon.png in Resources */,
 				A52A51F619630EDC0065407B /* Credits.rtf in Resources */,
 				A52A51FC19630EDC0065407B /* MainMenu.xib in Resources */,
-				A5A2E9BC19659790006AB761 /* icon-01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

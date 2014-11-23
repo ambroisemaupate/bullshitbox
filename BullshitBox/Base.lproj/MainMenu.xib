@@ -26,7 +26,6 @@
                 <outlet property="tableView" destination="roj-KL-Zvi" id="3tX-7m-qEF"/>
             </connections>
         </customObject>
-        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="BullshitBox" id="1Xt-HY-uBw">
@@ -322,7 +321,7 @@
         <window title="BullshitBox" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="735" y="297" width="500" height="649"/>
+            <rect key="contentRect" x="140" y="145" width="500" height="649"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="500" height="649"/>
@@ -363,7 +362,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="Mc1-gH-brQ" userLabel="speakButton">
-                                                                    <rect key="frame" x="8" y="10" width="445" height="14"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="453" height="33"/>
                                                                     <buttonCell key="cell" type="squareTextured" title="Button example" bezelStyle="texturedSquare" alignment="center" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" imageScaling="proportionallyDown" inset="2" id="Lwd-SI-2SO">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
@@ -372,8 +371,8 @@
                                                                         <action selector="onSentenceClicked:" target="C1d-oC-Wpw" id="gcz-mG-F1W"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4TR-X0-PHG" userLabel="removeButton">
-                                                                    <rect key="frame" x="461" y="1" width="26" height="31"/>
+                                                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4TR-X0-PHG" userLabel="removeButton">
+                                                                    <rect key="frame" x="461" y="2" width="26" height="31"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="26" id="0xj-SL-HfN"/>
                                                                     </constraints>
@@ -388,9 +387,11 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="4TR-X0-PHG" firstAttribute="leading" secondItem="Mc1-gH-brQ" secondAttribute="trailing" constant="8" id="MZg-h7-bNY"/>
+                                                                <constraint firstItem="Mc1-gH-brQ" firstAttribute="top" secondItem="C1d-oC-Wpw" secondAttribute="top" id="P3i-xN-sh5"/>
                                                                 <constraint firstAttribute="centerY" secondItem="Mc1-gH-brQ" secondAttribute="centerY" id="SL4-nq-B1y"/>
+                                                                <constraint firstItem="Mc1-gH-brQ" firstAttribute="leading" secondItem="C1d-oC-Wpw" secondAttribute="leading" id="Tqh-4Z-sVH"/>
                                                                 <constraint firstAttribute="trailing" secondItem="4TR-X0-PHG" secondAttribute="trailing" constant="8" id="Xrq-Hr-bhg"/>
-                                                                <constraint firstItem="Mc1-gH-brQ" firstAttribute="leading" secondItem="C1d-oC-Wpw" secondAttribute="leading" constant="8" id="pXQ-OF-A24"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Mc1-gH-brQ" secondAttribute="bottom" id="aQz-vl-ojQ"/>
                                                                 <constraint firstAttribute="centerY" secondItem="4TR-X0-PHG" secondAttribute="centerY" constant="1" id="t9J-lD-XpJ"/>
                                                             </constraints>
                                                             <connections>
