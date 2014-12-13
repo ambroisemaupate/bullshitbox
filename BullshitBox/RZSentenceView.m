@@ -15,13 +15,23 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _appDelegate = (RZAppDelegate *)[NSApp delegate];
-    //NSLog(@"Finish loading sentences delegate.");
 }
 
 
 - (IBAction)onSentenceClicked:(id)sender {
     NSString *sentence = self.speakButton.title;
-    [_appDelegate.synth startSpeakingString:sentence];
+    
+    NSDataDetector *detect = [[NSDataDetector alloc] initWithTypes:NSTextCheckingTypeLink error:nil];
+    NSArray *matches = [detect matchesInString:sentence options:0 range:NSMakeRange(0, [sentence length])];
+ 
+    if ([matches count] > 0) {
+        // Found an url, launch it in default browser
+        NSURL *url = [[matches objectAtIndex:0] URL];
+        [[NSWorkspace sharedWorkspace] openURL:url];
+    } else {
+        // No url just speek it
+        [_appDelegate.synth startSpeakingString:sentence];
+    }
 }
 - (IBAction)onRemovedClicked:(id)sender
 {
